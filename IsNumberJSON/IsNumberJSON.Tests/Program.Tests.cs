@@ -88,5 +88,19 @@ namespace IsNumberJSON.Tests
             bool success = false;
             Assert.Equal(success, Program.IsValidJSONNumber(console));
         }
+        [Fact]
+        public void For_a_number_with_wrong_exponential_notation()
+        {
+            string console = "12EE.+3";
+            bool success = false;
+            Assert.Equal(success, Program.IsValidJSONNumber(console));
+        }
+        [Fact]
+        public void For_a_number_with_wrong_punctual_notation()
+        {
+            string console = "+12E.3";
+            bool success = false;
+            Assert.Equal(success, Program.IsValidJSONNumber(console));
+        }
     }
 }
