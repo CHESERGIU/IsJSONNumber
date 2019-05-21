@@ -102,5 +102,19 @@ namespace IsNumberJSON.Tests
             bool success = false;
             Assert.Equal(success, Program.IsValidJSONNumber(console));
         }
+        [Fact]
+        public void For_a_number_with_wrong_order_of_notation_in_exponent_number()
+        {
+            string console = "12.3+E3";
+            bool success = false;
+            Assert.Equal(success, Program.IsValidJSONNumber(console));
+        }
+        [Fact]
+        public void For_a_number_with_wrong_order_of_POINT_notation_in_exponent_number()
+        {
+            string console = "123E+.3";
+            bool success = false;
+            Assert.Equal(success, Program.IsValidJSONNumber(console));
+        }
     }
 }
