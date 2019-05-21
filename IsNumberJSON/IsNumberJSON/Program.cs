@@ -19,12 +19,18 @@ namespace IsNumberJSON
             return HasNumber(console, number);
         }
 
-        private static bool HasNumber(string console, string number)
+        private static bool HasNumber(string input, string number)
         {
-            throw new NotImplementedException();
+            return input.Equals(number);
         }
 
-        private static string NumericString(string console)
+        private static string NumericString(string input)
+        {
+            string numericString = string.Empty;
+            return numericString = IsValid(input, numericString);
+        }
+
+        private static string IsValid(string input, string numericString)
         {
             throw new NotImplementedException();
         }
