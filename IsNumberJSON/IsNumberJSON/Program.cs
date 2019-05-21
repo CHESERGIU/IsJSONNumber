@@ -37,9 +37,11 @@ namespace IsNumberJSON
             return numericString;
         }
 
-        private static string EvaluateString(string numericString, char c)
+        private static string EvaluateString(string input, char c)
         {
-            throw new NotImplementedException();
+            if ((c >= '0' && c <= '9') || c == 'E' || c == '-' || c == '+' || c == '.' || c == 'e')
+                input = String.Concat(input, c);
+            return input;
         }
     }
 }
