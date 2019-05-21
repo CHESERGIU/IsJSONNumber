@@ -22,23 +22,19 @@ namespace IsNumberJSON
 
         private static bool HasNumber(string input)
         {
-            int count_E = 0;
-            int count_e = 0;
-            int count_plus = 0;
-            int count_point = 0;
-            string number = string.Empty;
+            int countExponent = 0;            
+            int countPlus = 0;
+            int countPoint = 0;
             foreach (char c in input) {
-                if ((c >= '0' && c <= '9') || c == 'E' || c == '-' || c == '+' || c == '.' || c == 'e')
-                {
-                    number = String.Concat(number, c); Console.WriteLine(number);
-                    if (c == 'E') count_E++; if (count_E > 1) break; 
-                    if (c == 'e') count_e++; if (count_e > 1) break;
-                    if (c == '+') count_plus++; if (count_plus > 1) break;
-                    if (c == '.') count_point++; if (count_point > 1) break;
-                    if (input[0] == 'E' || input[0] == 'e' || input[0] == '+') break;
+                if (Char.IsDigit(c) || "eE+-.".Contains(c))
+                {                    
+                    if (c == 'E' || c == 'e') countExponent++; if (countExponent > 1) return false;                     
+                    if (c == '+') countPlus++; if (countPlus > 1) return false;
+                    if (c == '.') countPoint++; if (countPoint > 1) return false;
+                    if (input[0] == 'E' || input[0] == 'e' || input[0] == '+') return false;
                 }
             }
-            return input.Equals(number); 
+            return true;
         }
         public static bool HasLeadingZero(string input)
         {
