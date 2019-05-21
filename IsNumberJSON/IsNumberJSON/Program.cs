@@ -14,30 +14,24 @@ namespace IsNumberJSON
         }
 
         public static bool IsValidJSONNumber(string console)
-        {
-            string number = NumericString(console);
-            return HasNumber(console, number) 
-                && !HasLeadingZero(console, number)
+        {            
+            return !HasNumber(console) 
+                && !HasLeadingZero(console)
                 && !EndWith(console); ;
         }
 
-        private static bool HasNumber(string input, string number)
-        {
-            return input.Equals(number);
-        }
-
-        private static string NumericString(string input)
-        {
-            string numericString = string.Empty;
+        private static bool HasNumber(string input)
+        {            
+            string number = string.Empty;
             foreach (char c in input) {
                 if ((c >= '0' && c <= '9') || c == 'E' || c == '-' || c == '+' || c == '.' || c == 'e')
                 {
-                    numericString = String.Concat(input, c);
+                    number = String.Concat(input, c);
                 }
-            }            
-            return input;
+            }
+            return input.Equals(number); 
         }
-        public static bool HasLeadingZero(string input, string number)
+        public static bool HasLeadingZero(string input)
         {
             return input[0] == '0' && input[1] != '.';
         }
