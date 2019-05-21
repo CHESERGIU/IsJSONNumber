@@ -13,7 +13,18 @@ namespace IsNumberJSON
             Console.ReadLine();
         }
 
-        private static bool IsValidJSONNumber(string v)
+        private static bool IsValidJSONNumber(string console)
+        {
+            string number = NumericString(console);
+            return HasNumber(console, number);
+        }
+
+        private static bool HasNumber(string console, string number)
+        {
+            throw new NotImplementedException();
+        }
+
+        private static string NumericString(string console)
         {
             throw new NotImplementedException();
         }
