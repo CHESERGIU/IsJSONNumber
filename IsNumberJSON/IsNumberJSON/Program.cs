@@ -43,5 +43,14 @@ namespace IsNumberJSON
                 input = String.Concat(input, c);
             return input;
         }
+        public static bool HasLeadingZero(string input, string number)
+        {
+            return input[0] == '0' && input[1] != '.';
+        }
+
+        public static bool EndWith(string input)
+        {
+            return input.EndsWith(".") || input.EndsWith('E');
+        }
     }
 }
