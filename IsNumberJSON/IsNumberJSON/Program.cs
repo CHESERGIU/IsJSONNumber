@@ -32,6 +32,13 @@ namespace IsNumberJSON
 
         private static string IsValid(string input, string numericString)
         {
+            foreach (char c in input)
+                numericString = EvaluateString(numericString, c);
+            return numericString;
+        }
+
+        private static string EvaluateString(string numericString, char c)
+        {
             throw new NotImplementedException();
         }
     }
